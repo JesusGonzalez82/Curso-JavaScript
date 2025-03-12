@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+h2{
+    color: blue;
+}
+.box{
+    height: auto;
+    width: auto;
+    border: 1px solid black;
+}
