@@ -1,27 +1,36 @@
-let free = false;
+let cantidad = parseInt(prompt('Cuantos alumnos son?'));
+let alumnosTotales = [];
 
-const validar = (time) =>{
-  let edad = prompt('¿Cual es tu edad?');
-  if (edad >= 18){
-    if (time >= 2 && time < 7 && !free ){
-      alert('Puedes pasar gratis!! Eres el primero pasadas las 2AM');
-      free = true;
-    }else {
-      alert(`Son las ${time}:00, puedes pasar, pero tienes que pagar`);
-    }
-  }else{
-    alert('Vete a casa con tu mamá, que eres muy pequeño')
+for (let i = 0; i < cantidad; i++){
+  alumnosTotales[i] = [prompt('Nombre del alumno ' + (i + 1)), 0];
+}
+
+const asistencias = (nombre, p)=>{
+  let presencia = prompt(nombre);
+  if (presencia == 'p' || presencia == 'P'){
+    alumnosTotales[p][1]++;
   }
 }
 
-validar(23);
-validar(24);
-validar(0.2);
-validar(0.6);
-validar(1);
-validar(2);
-validar(2.4);
-validar(3);
+for (let i = 0; i < 30; i++) {
+    for (alumno in alumnosTotales){
+      asistencias(alumnosTotales[alumno][0],alumno);
+    }
+}
+
+// let resultado = "<h3>Resultados Finales</h3>";
+
+for (alumno in alumnosTotales){
+    let resultado = `${alumnosTotales[alumno][0]}:<br>
+    ___________Presencias: <b>${alumnosTotales[alumno][1]}</b> <br>
+    ___________Ausencias: <b>${30 - alumnosTotales[alumno][1]}</b>`;
+    if (30 - alumnosTotales[alumno][1] > 18){
+      resultado += "<b style='color:red'>Suspenso por faltas reiteradas</b><br><br>";
+    }else {
+      resultado+= "<br><br>";
+    }
+  document.write(resultado)    
+}
 
 
 
