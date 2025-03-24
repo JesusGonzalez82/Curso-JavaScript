@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    margin: 10px;
+}
+
+body, div{
+    box-sizing: border-box;
+}
