@@ -19,3 +19,15 @@ console.count();
 console.group(); // Crea un nuevo grupo de linea, lo muestra abierto.
 console.groupEnd(); // Borra el grupo creado.
 console.groupCollapsed(); // Crea un nuevo grupo, pero aparece cerrado.
+console.groupEnd();
+
+// Funciones de temporizacion
+
+console.time();
+console.timeLog();
+console.timeLog();
+console.timeEnd();
+
+// Funciones para modificar el codido
+
+console.log("%cpepito", "color:#fff;background:#48e;padding:20px;border: 3px solid black")
