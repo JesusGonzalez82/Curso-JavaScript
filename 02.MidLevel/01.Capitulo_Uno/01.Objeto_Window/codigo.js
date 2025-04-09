@@ -19,10 +19,30 @@
 const screen = window.screen;
 const screenLeft = window.screenLeft;
 const screenTop = window.screenTop;
+const scrollY = window.scrollY;
+const scrollX = window.scrollX;
 
 console.log(screen);
 document.writeln(`Screen <b>${screen}</b></br>
     ScreenLeft <b>${screenLeft}</b><br>
-    ScreenTop <b>${screenTop}</b>`);
+    ScreenTop <b>${screenTop}</b><br>`);
+
+// alert(scrollX + " " + scrollY);
+
+const href = window.location.href;
+const hostname = window.location.hostname;
+const pathname = window.location.pathname;
+const protocol = window.location.protocol;
+const assing = window.location.assing;
+document.writeln(`<b>href:</b>${href}<br>
+    <b>hostname:</b>${hostname}<br>
+    <b>pathname:</b>${pathname}<br>
+    <b>protocol:</b>${protocol}<br>
+    <b>assing:</b>${assing}<br>` 
+    
+);
+
+
+
 
 
