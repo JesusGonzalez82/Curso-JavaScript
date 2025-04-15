@@ -1,23 +1,31 @@
+
+
 // Manera no recomendada de hacerlo
 
 const button = document.querySelector('.button');
 const otherButton = document.querySelector('.button-2');
 const contenedor = document.querySelector('.container');
 
-button.onclick = () =>{
-    alert("Hola Aitana")
-}
+// button.onclick = () =>{
+//     alert("Hola Aitana")
+// }
 
-// Manera actual o recomendada de hacerlo 
+// El evento se dispara cuando el mouse entra del elemento
 
-otherButton.addEventListener('click', (e) =>{
+// otherButton.addEventListener('mouseover', (e) =>{
+//     alert('Hola Chicas!');
+//     console.log(e);
+// });
+
+// El evento se dispara cuando el mouse sale del elemento
+
+otherButton.addEventListener('mouseout', (e) =>{
     alert('Hola Chicas!');
     console.log(e);
 });
 
-contenedor.addEventListener('click', (e)=>{
-    alert('haz click en el contenedor');
-    e.stopPropagation;
-},true);
+// contenedor.addEventListener('dblclick', (e)=>{
+//     alert('haz click en el contenedor');
+// });
 
 
