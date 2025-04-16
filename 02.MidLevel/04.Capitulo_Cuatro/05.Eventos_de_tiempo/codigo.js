@@ -1,31 +1,16 @@
-const img = document.querySelector(".img__prueba");
+// const saludar = ()=>{
+//     document.writeln("Hola");
+// };
 
-// Evento Error
+// setTimeout(saludar, 2000);
 
-img.addEventListener('error', ()=>{
-    console.log('Ha sucedudi un Error');
-});
+let contador = 0;
 
-// Evento Load
+const intervalo = setInterval(() => {
+    document.body.innerHTML += "Penny<br>";
+    contador++;
 
-window.addEventListener("load", ()=>{
-    console.log("Ha cargado la pagina web");
-});
-
-// Evento beforeunload
-
-addEventListener('beforeunload', ()=>{
-    console.log("Estas abandonando la web")
-})
-
-// Evento resize
-
-addEventListener('resize', ()=>{
-    console.log("Se está actualizando la resolucion");
-});
-
-// Evento Scroll
-
-addEventListener('scroll', ()=>{
-    console.log("Se está haciendo scroll");
-});
+    if (contador === 3){
+        clearInterval(intervalo); // Paramos el intervalo
+    }
+}, 2000); // Tiempo en milisegundos entre intervalos
