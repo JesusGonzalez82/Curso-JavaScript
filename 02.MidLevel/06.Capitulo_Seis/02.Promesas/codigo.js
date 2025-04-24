@@ -1,67 +1,69 @@
 
 
-// function prueba(callback){
-//     callback("Pedro");
-// }
+function prueba(callback){
+    callback("Pedro");
+}
 
-// function decirNombre(nombre){
-//     console.log(nombre);
-// }
+function decirNombre(nombre){
+    console.log(nombre);
+}
 
-// prueba(decirNombre);
+prueba(decirNombre);
 
-// class Persona {
-//     constructor(nombre, equipo, instagram){
-//         this.nombre = nombre;
-//         this.equipo = equipo;
-//         this.instagram = instagram;
-//     }
-// }
+class Persona {
+    constructor(nombre, equipo, instagram){
+        this.nombre = nombre;
+        this.equipo = equipo;
+        this.instagram = instagram;
+    }
+}
 
-// const datoPersonas = [
-//     ["Jesus Gonzalez", "Real Madrid", "@chusoMTB"],
-//     ["Pablo Llorente", "Fc Barcelona", "@llorenteB"],
-//     ["Pavel Rodriguez", "Rayo Vallecano", "@pinflas"],
-//     ["Javier Sanz", "Real Madrid", "@estoNoEsSerio"]
-// ];
+const datoPersonas = [
+    ["Jesus Gonzalez", "Real Madrid", "@chusoMTB"],
+    ["Pablo Llorente", "Fc Barcelona", "@llorenteB"],
+    ["Pavel Rodriguez", "Rayo Vallecano", undefined],
+    ["Javier Sanz", undefined, "@estoNoEsSerio"]
+];
 
-// let personas = [];
+let personas = [];
 
-// for (let i = 0; i < datoPersonas.length; i++){
-//     personas[i] = new Persona(datoPersonas[i][0],datoPersonas[i][1],datoPersonas[i][2])
-// }
+for (let i = 0; i < datoPersonas.length; i++){
+    personas[i] = new Persona(datoPersonas[i][0],datoPersonas[i][1],datoPersonas[i][2])
+}
 
-// console.log(personas)
+console.log(personas)
 
-// const obtenerPersona = (id, cb)=>{
-//     if (personas[id] == undefined){
-//         cb("No se ha encontrado la persona");
-//     }else{
-//         cb(null, personas[id])
-//     }
-// }
+const obtenerPersona = (id)=>{
+    return new Promise((resolve, reject)=>{
+        if (personas[id]==undefined) reject ("No se ha encontrado a la persona");
+        else {resolve(personas[id])}
+    });
+}
 
-// const obtenerInsta = (id, cb)=>{
-//     if (personas[id].instagram == undefined){
-//         cb("No se ha encontrado el instagram");
-//     }else{
-//         cb(null, personas[id].instagram)
-//     }
-// }
+const obtenerEquipo = (id)=>{
+    return new Promise((resolve,reject)=>{
+        if (personas[id].equipo==undefined) reject("No tiene equipo, es un triste");
+        else {resolve(personas[id].equipo)};
+    })
+}
 
-// obtenerPersona(0,(err,persona)=>{
-//     if (err){
-//         console.log("Error en el nombre");
-//     }else{
-//         console.log(persona.nombre);
-//         console.log(persona.equipo);
-//         obtenerInsta(0,(err,instagram)=>{
-//             if(err){
-//                 console.error(err);
-//             }else{
-//                 console.log(instagram);
-//             }
-//         });
-//     }
-// });
+const obtenerInsta = (id)=>{
+    return new Promise ((resolve,reject)=>{
+        if(personas[id].instagram == undefined) reject ("Esta persona no tiene instagram");
+        else {resolve(personas[id].instagram)}
+    });
+}
+
+let id = 3;
+obtenerPersona(id).then((persona)=>{
+    console.log(persona.nombre);
+    return obtenerInsta(id);
+    }).then((instagram)=>{
+        console.log(instagram);
+        return obtenerEquipo(id);
+    }).then((equipo)=>{
+        console.log(equipo);
+    }).catch((e)=>{
+        console.log("Error",e);
+})
 
