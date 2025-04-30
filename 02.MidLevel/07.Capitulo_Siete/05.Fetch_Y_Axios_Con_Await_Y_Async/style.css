@@ -1,0 +1,14 @@
+body{
+    color: #fff;
+    font-family: sans-serif;
+}
+
+#btn-name{
+    font-size: 40px;
+    margin: 20px;
+}
+
+#resultado{
+    color: #000;
+    font-size: 20px;
+}
