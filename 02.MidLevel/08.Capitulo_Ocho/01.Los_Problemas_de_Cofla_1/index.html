@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los problemas de Cofla</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <p>Cofla ya está cursando el último trimestre en la Universidad. Efectivamente tuvo todo lo necesario para aprobar el curso, pero él tiene una duda, quiere saber cuantas personas están matrículadas en el último semestre. Esta información la tiene en una API de la Universidad de fácil acceso.</p>
+
+    <ul>
+        <li>Crear un sistema para obtener esa información</li>
+        <li>Mostrarla ordenadamente en un sitio web</li>
+    </ul>
+
+    <button id="getInfo">Obtener Informacion</button>
+    <div class="resultados">
+        <div class="aprobados">Aprobados: <b class="num-aprobados"></b></div>
+        <div class="suspensos">Suspensos: <b class="num-suspensos"></b></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="codigo.js"></script>
+</body>
+</html>
